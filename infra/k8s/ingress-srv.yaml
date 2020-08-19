@@ -5,8 +5,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
-    nginx.ingress.kubernetes.io/websocket-services: server-srv
-    nginx.org/websocket-services: server-srv
+    nginx.ingress.kubernetes.io/websocket-services: gateway-srv
+    nginx.org/websocket-services: gateway-srv
 spec:
   rules:
     - host: graphql.dev
@@ -14,6 +14,6 @@ spec:
         paths:
           - path: /?(.*)
             backend:
-              serviceName: server-srv
+              serviceName: gateway-srv
               servicePort: 4000
             

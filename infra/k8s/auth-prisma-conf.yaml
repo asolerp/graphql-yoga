@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prisma-configmap
+  labels:
+    name: prisma
+    app: prisma
+data:
+  PRISMA_CONFIG: |
+    port: 4466
+    databases:
+      default:
+        connector: mongo
+        uri: mongodb://auth-mongo-srv:27017/users

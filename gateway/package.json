@@ -4,12 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
+    "@apollo/federation": "^0.19.1",
+    "@apollo/gateway": "^0.19.1",
     "@types/mongoose": "^5.7.36",
-    "graphql-yoga": "^1.18.3",
+    "apollo-server": "^2.16.1",
+    "apollo-server-express": "^2.16.1",
+    "express": "^4.17.1",
     "mongoose": "^5.9.28",
+    "nodemon": "^2.0.4",
     "ts-node-dev": "^1.0.0-pre.56",
     "typescript": "^3.9.7"
   }

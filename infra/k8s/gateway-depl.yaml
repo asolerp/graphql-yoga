@@ -1,34 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-depl
+  name: gateway-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: server
+      app: gateway
   template:
     metadata:
       labels:
-        app: server
+        app: gateway
     spec:
       containers:
-        - name: server
-          image: asolerp/server
+        - name: gateway
+          image: asolerp/gateway
+          ports:
+            - containerPort: 4000
           env:
-            - name: MONGO_URI
-              value: 'mongodb://server-mongo-srv:27017/server'
-      
+            - name: SERVICE1_URL
+              value: 'http://auth-srv'
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: server-srv
+  name: gateway-srv
 spec:
   selector:
-    app: server
+    app: gateway
   ports:
-    - name: server
+    - name: gateway
       protocol: TCP
       port: 4000
       targetPort: 4000

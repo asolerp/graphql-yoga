@@ -8,13 +8,20 @@ build:
   local:
     push: false
   artifacts:
-    - image: asolerp/server
-      context: server
+    # - image: asolerp/gateway
+    #   context: gateway
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: 'src/**/*.js'
+    #         dest: .
+    - image: asolerp/auth
+      context: auth
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: 'src/**/*.ts'
             dest: .
-
         
